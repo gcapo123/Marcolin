@@ -17,7 +17,7 @@
         "emailSectionDescText" : "When email notifications are enabled, email me when someone:",
         "hideChatterNotificationSettings" : true,
         "hideConnectedSources" : true,
-        "hideEmailNotificationSettings" : false,
+        "hideEmailNotificationSettings" : true,
         "hideProfileVisibilitySettings" : true,
         "id" : "{!recordId}",
         "locationTitle" : "Location",

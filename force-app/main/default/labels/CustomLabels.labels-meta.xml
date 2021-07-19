@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Remember_Me</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Remember Me</shortDescription>
+        <value>Remember Me</value>
+    </labels>
+    <labels>
+        <fullName>marketing_label1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Acconsento al trattamento dei miei dati personali per l'invio tramite whatsapp, </shortDescription>
+        <value>I consent to the processing of my personal data for sending via whatsapp, </value>
+    </labels>
+
+    <labels>
+        <fullName>marketing_label2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SMS and / or e-mail communications for promotional, commercial, marketing and</shortDescription>
+        <value>SMS and / or e-mail communications for promotional, commercial, marketing and</value>
+    </labels>
+
+    <labels>
+        <fullName>MyProfile_ErrorMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sorry we couldn't retrieve your information. Please try again later or reload</shortDescription>
+        <value>Sorry we couldn't retrieve your information. Please try again later or reload</value>
+    </labels>
+
+    <labels>
+        <fullName>Cancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+
+    <labels>
+        <fullName>Save</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>
+
+    <labels>
+        <fullName>marketing_label3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>vendita diretta, nonché di una newsletter da parte di Epta SpA in relazione</shortDescription>
+        <value>direct sales, as well as a newsletter from Marcolin SpA in relation</value>
+    </labels>
+
+    <labels>
+        <fullName>marketing_label4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>alle iniziative proprie e/o di società controllate e/o collegate.</shortDescription>
+        <value>to own initiatives and / or initiatives of subsidiaries and / or associates.</value>
+    </labels>
+    <labels>
+        <fullName>email_invalid</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>email_invalid</shortDescription>
+        <value>Email is invalid</value>
+    </labels>
+    <labels>
+        <fullName>email_is_required</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>email_is_required</shortDescription>
+        <value>Email is required</value>
+    </labels>
+    <labels>
+        <fullName>password_required</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>password_required</shortDescription>
+        <value>Password is required</value>
+    </labels>
+</CustomLabels>

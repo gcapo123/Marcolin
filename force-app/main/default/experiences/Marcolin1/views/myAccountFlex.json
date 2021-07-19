@@ -1,0 +1,140 @@
+{
+  "appPageId" : "84dc502a-dd43-4058-96b7-951f47314b33",
+  "componentName" : "siteforce:dynamicLayout",
+  "id" : "a1c2e066-0b31-40de-86ee-5207cddf5298",
+  "label" : "MyAccount (Flex)",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "a539d86b-854f-4d0c-a28d-f2e8878abd3a",
+          "columns" : [ {
+            "UUID" : "17c80a4e-8551-44cc-ae03-e954a63649d7",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "a539d86b-854f-4d0c-a28d-f2e8878abd3a",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "tabsetConfig" : {
+              "UUID" : "1fc64b65-9432-417e-85ee-ba8a9fe7682d",
+              "activeTab" : "",
+              "tabs" : [ {
+                "UUID" : "3b39ea07-0bad-490a-b152-0155d1177e4a",
+                "allowGuestUser" : false,
+                "locked" : false,
+                "seedComponents" : [ ],
+                "tabKey" : "1",
+                "tabName" : "Account Details"
+              }, {
+                "UUID" : "5ba5b908-31e9-4f49-987d-6089a4ff8250",
+                "allowGuestUser" : false,
+                "locked" : false,
+                "seedComponents" : [ ],
+                "tabKey" : "2",
+                "tabName" : "Buyer Account Details"
+              }, {
+                "UUID" : "13767a51-48c2-48c3-adf4-685fc3f5bb9d",
+                "allowGuestUser" : false,
+                "locked" : false,
+                "seedComponents" : [ ],
+                "tabKey" : "3",
+                "tabName" : "Addresses"
+              } ],
+              "useOverflowMenu" : false
+            }
+          },
+          "componentName" : "forceCommunity:tabset",
+          "id" : "1fc64b65-9432-417e-85ee-ba8a9fe7682d",
+          "regions" : [ {
+            "components" : [ {
+              "componentAttributes" : {
+                "labelCountry" : "Country",
+                "labelEmail" : "Email Address",
+                "labelGoodCredit" : "Good Credit",
+                "labelLanguage" : "Language",
+                "labelName" : "Name",
+                "labelPhone" : "Phone Number",
+                "labelTimezone" : "Timezone",
+                "labelUsername" : "Username",
+                "labelVat" : "VAT Code"
+              },
+              "componentName" : "c:myProfile",
+              "id" : "eb27f783-aff3-4a81-949d-230129a77363",
+              "renditionMap" : { },
+              "type" : "component"
+            } ],
+            "id" : "3b39ea07-0bad-490a-b152-0155d1177e4a",
+            "regionLabel" : "Account Details",
+            "regionName" : "1",
+            "renditionMap" : { },
+            "type" : "region"
+          }, {
+            "components" : [ {
+              "componentAttributes" : {
+                "recordId" : "{!CurrentUser.effectiveAccountId}"
+              },
+              "componentName" : "forceCommunity:buyerAccountDetail",
+              "id" : "31dd2a37-6898-43ef-87f3-d4c10c2f68c9",
+              "renditionMap" : { },
+              "type" : "component"
+            } ],
+            "id" : "5ba5b908-31e9-4f49-987d-6089a4ff8250",
+            "regionLabel" : "Buyer Account Details",
+            "regionName" : "2",
+            "renditionMap" : { },
+            "type" : "region"
+          }, {
+            "components" : [ {
+              "componentAttributes" : {
+                "customTitle" : "",
+                "parentRecordId" : "{!CurrentUser.effectiveAccountId}",
+                "relatedListName" : "ContactPointAddress",
+                "showBreadCrumbs" : true,
+                "showCustomTitle" : false,
+                "showManualRefreshButton" : true,
+                "showRowNumbers" : true
+              },
+              "componentName" : "forceCommunity:relatedList",
+              "id" : "4b049224-6cb0-4f5a-84ef-a2c5d5e9c23e",
+              "renditionMap" : { },
+              "type" : "component"
+            } ],
+            "id" : "13767a51-48c2-48c3-adf4-685fc3f5bb9d",
+            "regionLabel" : "Addresses",
+            "regionName" : "3",
+            "renditionMap" : { },
+            "type" : "region"
+          } ],
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "17c80a4e-8551-44cc-ae03-e954a63649d7",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "dabfe14c-4df6-4091-bf55-c1c176c2b38d",
+    "regionName" : "content",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "my-account"
+}

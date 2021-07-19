@@ -17,9 +17,22 @@
         <name>CustomObject</name>
     </types>
     <types>
+        <members>MyProfileController</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>MyProfile</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
         <members>Commerce_User</members>
         <name>PermissionSet</name>
     </types>
+    <types>
+        <members>*</members>
+        <name>StaticResource</name>
+    </types>
+
     <types>
         <members>Admin</members>
         <members>Customer Community Plus Login</members>
@@ -27,11 +40,25 @@
         <members>Guest License User</members>
         <name>Profile</name>
     </types>
-    <version>52.0</version>
-    <!--<types>
-        <members>*</members>
-        <name>ApexClass</name>
+    <types>
+      <members>*</members>
+      <name>CustomLabels</name>
     </types>
+    <types>
+      <members>*</members>
+      <name>Translations</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ExperienceBundle</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Network</name>
+    </types>
+
+    <version>52.0</version>
+    <!--
     <types>
         <members>*</members>
         <name>ApexComponent</name>
@@ -51,11 +78,8 @@
     <types>
         <members>*</members>
         <name>AuraDefinitionBundle</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>LightningComponentBundle</name>
-    </types>
+    </types> ->AURA COMPONENT
+    
     <types>
         <members>*</members>
         <name>StaticResource</name>

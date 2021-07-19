@@ -1,0 +1,178 @@
+ .circularImage {
+    border-radius: 50%;
+    height: 10rem;
+    width: 10rem;
+    max-width: initial;
+}
+ .hideButton {
+    border: none;
+    background: none;
+    padding: 0;
+}
+ .circularImageAvatar {
+    border-radius: 50%;
+    height: 10rem;
+    width: 10rem;
+    max-width: initial;
+    background-color: lightgray;
+}
+ .modalHeader {
+    height: 80px;
+}
+ .container {
+    position: relative;
+}
+ .container img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+ .container .positionClass {
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 6px;
+}
+.cUserDetails h1 {
+    color: black;
+    font-size: x-large;
+    font-weight: 300;
+    padding-bottom: 16px;
+}
+.cUserDetails h2 {
+    font-size: large;
+    font-weight: 600;
+}
+.cUserDetails h3 {
+    font-size: medium;
+    font-weight: 300;
+}
+.title{
+    font-size: x-large;
+    margin-top: 10px;
+}
+.userDetails-container {
+    display: flex;
+    flex: 1 0 auto;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+    -webkit-align-content: stretch;
+    align-content: stretch;
+    flex-wrap: wrap;
+    padding-bottom: 100px;
+    margin-bottom: auto;
+}
+ .userDetails-imageProfile {
+    display: flex;
+    flex: 0 0 auto;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-align-content: center;
+    align-content: center;
+    margin-top: 40px;
+    width: 33%;
+    max-width: 33%;
+}
+
+ .userDetails-marketing {
+    padding-top: 2rem;
+    padding-left: 0;
+}
+
+ .columnStyle {
+    font-size: 12px;
+    text-align: justify; 
+    font-family: Lato; 
+    font-weight: 500;
+    color: rgba(5, 5, 5, 0.87);
+    line-break: auto;
+
+}
+
+ .userDetails-info {
+    display: flex;
+    flex: 1 0 auto;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+    -webkit-align-content: stretch;
+    align-content: stretch;
+    margin-top: 40px;
+    max-width: 67%;
+    width:67%;
+}
+ .userDetails-info-row {
+    display: flex;
+    flex: 0 0 auto;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    align-items: flex-start;
+    -webkit-align-content: center;
+    align-content: center;
+    border-bottom: 1px solid lightgrey;
+    width: 100%;
+}
+ .userDetails-info-action {
+    display: flex;
+    flex: 0 0 auto;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-align-content: center;
+    align-content: center;
+    width: 100%;
+    padding-top: 2rem;
+}
+ .userDetails-info-element {
+    width: 50%;
+}
+ .userDetails-info-element-label {
+    color: rgba(0, 0, 0, 0.81);
+    font-family: Lato;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 2px;
+    padding-top: 4px;
+}
+ .userDetails-info-element-text {
+    color: rgba(5, 5, 5, 0.87);
+    font-family: Lato;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 25px;
+}
+@media screen and (max-width: 480px) {
+     .userDetails-imageProfile {
+        width: 100%;
+        max-width: 100%;
+    }
+
+     .userDetails-info-element-text {
+        line-height: normal;
+    }
+
+
+     .userDetails-info {
+        max-width: 100%;
+        width:100%;
+    }
+}

@@ -10,16 +10,23 @@
         <target>lightning__HomePage</target>
     </targets>
     <targetConfigs>
-        <targetConfig targets="lightning__RecordPage,lightning__AppPage,lightning__HomePage">
-            <property name="labelName" type="String" />
-            <property name="labelUsername" type="String" />
-            <property name="labelPhone" type="String"/>
-            <property name="labelCountry" type="String"/>
-            <property name="labelEmail" type="String"/>
-            <property name="labelLanguage" type="String"/>
-            <property name="labelTimezone" type="String"/>
-            <property name="labelGoodCredit" type="String"/>
-            <property name="labelVat" type="String"/>
+        <targetConfig targets="lightningCommunity__Default,lightning__HomePage">
+            <property name="title" type="String" label ="Title" />
+            <property name="labelName" type="String" label ="Name" />
+            <property name="labelUsername" type="String" label ="Username"/>
+            <property name="labelPhone" type="String" label ="Phone"/>
+            <property name="labelCountry" type="String" label ="Country"/>
+            <property name="labelEmail" type="String" label ="Email"/>
+            <property name="labelLanguage" type="String" label ="Language"/>
+            <property name="labelTimezone" type="String" label ="Timezone"/>
+            <property name="labelGoodCredit" type="String" label ="Good Credit"/>
+            <property name="labelVat" type="String" label ="VAT"/>
+            <property name="labelChangeInfo" type="String" label ="Edit Info"/>
+            <property name="labelChangePassword" type="String" label ="Change Password"/>
+            <property name="labelChangeMarketing" type="String" label ="Title of change marketing modal"/>
+            <property name="labelChangeMarketingText" type="String" label ="Content of change marketing modal"/>
+            <property name="labelChangeInfoTitle" type="String" label ="Title Of Edit Info Modal"/>
+            <property name="labelChangePasswordTitle" type="String" label ="Title Of Change Password Modal"/>
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

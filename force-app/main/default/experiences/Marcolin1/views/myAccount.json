@@ -62,15 +62,6 @@
       "componentName" : "forceCommunity:tabset",
       "id" : "95092ec5-83f9-4296-9adf-28fa677dd5e2",
       "regions" : [ {
-        "components" : [ {
-          "componentAttributes" : {
-            "recordId" : "{!CurrentUser.effectiveAccountId}"
-          },
-          "componentName" : "forceCommunity:recordDetail",
-          "id" : "1a91d1b2-87ad-4e14-978c-1b2342dbb6f4",
-          "renditionMap" : { },
-          "type" : "component"
-        } ],
         "id" : "db138641-199e-4d4d-a105-2764011d35ad",
         "regionLabel" : "Account Details",
         "regionName" : "tab1",

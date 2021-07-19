@@ -3,24 +3,18 @@
         <h3>{errormsg}</h3>
     </template>
     <template if:false={hasError}>
+        <h1 class="title">{title}</h1>
         <section class='userDetails-container'>
+            
             <div class='userDetails-imageProfile'>
-                <h1>{title}</h1>
                 <div class="container">
                     <button onclick={handleClickPicture} class="hideButton">
                         <template if:true={hasPicture}>
-                            <img src={user.FullPhotoUrl} class="circularImage" />
+                            <img src={user.profilePic} class="circularImage" />
                         </template>
                         <template if:false={hasPicture}>
-                            <span class="slds-avatar slds-avatar_circle">
-                                <span class="slds-icon_container slds-icon-standard-user" title="Description of icon when needed">
-                                <svg class="slds-icon" aria-hidden="true">
-                                <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#user"></use>
-                                </svg>
-                                </span>
-                            </span>
-                            <!--<img src={!$Resource.userAvatar} class="circularImageAvatar" alt="User avatar" />
-                            <lightning-icon class="positionClass" iconName="utility:photo" alternativeText="Photo" title="Photo" size='small' ></lightning-icon>-->
+                            <img src={userAvatar} class="circularImageAvatar" alt="User avatar" />
+                            <!--<lightning-icon class="positionClass" iconName="utility:photo" alternativeText="Photo" title="Photo" size='small' ></lightning-icon>-->
                         </template>
                     </button>
                 </div>
@@ -82,15 +76,15 @@
                 </div>
 
                 <div class='userDetails-info-action'>
-                    <lightning-button class="button" variant="brand" label={changeEmailLabel} onclick={handleClickEmail} ></lightning-button>
-                    <lightning-button class="button" variant="brand" label={changePasswordLabel} onclick={handleClickPassword} ></lightning-button>
+                    <lightning-button class="button" variant="brand" label={labelChangeInfo} onclick={handleChangeInfo} ></lightning-button>
+                    <lightning-button class="button" variant="brand" label={labelChangePassword} onclick={handleChangePassword} ></lightning-button>
                 </div>
                 <div class='userDetails-marketing'>
                 <table>
                     <tr>
                         <td style="vertical-align: baseline;width:0px">
                             
-                            <lightning-input aura:id="MarketingFlag" type="checkbox" name="MarketingFlag" checked={User.Marketing} onchange={handleChangeMarketing} ></lightning-input>
+                            <lightning-input aura:id="MarketingFlag" type="checkbox" name="MarketingFlag" checked={marketing} onchange={handleChangeMarketing} ></lightning-input>
                         </td>
                         <td style="padding-right: 20%;">
                             <h2 class="columnStyle"> {marketing_label1}&nbsp; 
@@ -103,6 +97,96 @@
                 </div>
             </div>
         </section>
+
+        <template if:true={changeMarketing}>
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box LWC header here -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeChangeMarketing}>
+                            <lightning-icon icon-name="utility:close"
+                                alternative-text="close"
+                                variant="inverse"
+                                size="small" ></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{labelChangeMarketing}</h2>
+                    </header>
+                    <!-- Modal/Popup Box LWC body starts here -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        {labelChangeMarketingText}
+                    </div>
+                    <!-- Modal/Popup Box LWC footer starts here -->
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={closeChangeMarketing} title="Cancel">{cancel}</button>
+                        <button class="slds-button slds-button_brand" onclick={saveChangeMarketing} title="Save">{save}</button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </template>
+
+        <template if:true={changeInfo}>
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box LWC header here -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeChangeInfo}>
+                            <lightning-icon icon-name="utility:close"
+                                alternative-text="close"
+                                variant="inverse"
+                                size="small" ></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">{labelChangeInfoTitle}</h2>
+                    </header>
+                    <!-- Modal/Popup Box LWC body starts here -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                        form
+                    </div>
+                    <!-- Modal/Popup Box LWC footer starts here -->
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={closeChangeInfo} title="Cancel">{cancel}</button>
+                        <button class="slds-button slds-button_brand" onclick={saveChangeInfo} title="Save">{save}</button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </template>
+
+        <template if:true={changePassword}>
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box LWC header here -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeChangePassword}>
+                            <lightning-icon icon-name="utility:close"
+                                alternative-text="close"
+                                variant="inverse"
+                                size="small" ></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-03" class="slds-text-heading_medium slds-hyphenate">{labelChangePasswordTitle}</h2>
+                    </header>
+                    <!-- Modal/Popup Box LWC body starts here -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-3">
+                        form
+                    </div>
+                    <!-- Modal/Popup Box LWC footer starts here -->
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={closeChangePassword} title="Cancel">{cancel}</button>
+                        <button class="slds-button slds-button_brand" onclick={saveChangePassword} title="Save">{save}</button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </template>
 
 
         <!--<aura:if isTrue="{!v.changePassword}">
