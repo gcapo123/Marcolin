@@ -1,0 +1,173 @@
+<template>
+    <template if:true={hasError}>
+        <h3>{errormsg}</h3>
+    </template>
+    <template if:false={hasError}>
+        <section class='userDetails-container'>
+            <div class='userDetails-imageProfile'>
+                <h1>{title}</h1>
+                <div class="container">
+                    <button onclick={handleClickPicture} class="hideButton">
+                        <template if:true={hasPicture}>
+                            <img src={user.FullPhotoUrl} class="circularImage" />
+                        </template>
+                        <template if:false={hasPicture}>
+                            <span class="slds-avatar slds-avatar_circle">
+                                <span class="slds-icon_container slds-icon-standard-user" title="Description of icon when needed">
+                                <svg class="slds-icon" aria-hidden="true">
+                                <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#user"></use>
+                                </svg>
+                                </span>
+                            </span>
+                            <!--<img src={!$Resource.userAvatar} class="circularImageAvatar" alt="User avatar" />
+                            <lightning-icon class="positionClass" iconName="utility:photo" alternativeText="Photo" title="Photo" size='small' ></lightning-icon>-->
+                        </template>
+                    </button>
+                </div>
+            </div>
+            <div class='userDetails-info'>
+                <div class='userDetails-info-row'>
+                    <div class='userDetails-info-element'>
+                        <div class='userDetails-info-element-label'>
+                            {labelName}
+                        </div>
+                        <div class='userDetails-info-element-text'>
+                            {user.name}
+                        </div>
+                    </div>
+                    <div class='userDetails-info-element'>
+                        <div class='userDetails-info-element-label'>
+                            {labelCompany}
+                        </div>
+                        <div class='userDetails-info-element-text'>
+                            {user.company}
+                        </div>
+                    </div>
+                </div>
+                <div class='userDetails-info-row'>
+                    <div class='userDetails-info-element'>
+                        <div class='userDetails-info-element-label'>
+                            {labelUsername}
+                        </div>
+                        <div class='userDetails-info-element-text'>
+                            {user.username}
+                        </div>
+                    </div>
+                    <div class='userDetails-info-element'>
+                        <div class='userDetails-info-element-label'>
+                            {labelCountry}
+                        </div>
+                        <div class='userDetails-info-element-text'>
+                            {user.country}
+                        </div>
+                    </div>
+                </div>
+                <div class='userDetails-info-row'>
+                    <div class='userDetails-info-element'>
+                        <div class='userDetails-info-element-label'>
+                            {labelEmail}
+                        </div>
+                        <div class='userDetails-info-element-text'>
+                            {user.email}
+                        </div>
+                    </div>
+                    <div class='userDetails-info-element'>
+                        <div class='userDetails-info-element-label'>
+                            {labelPhone}
+                        </div>
+                        <div class='userDetails-info-element-text'>
+                            {user.phone}
+                        </div>
+                    </div>
+                </div>
+
+                <div class='userDetails-info-action'>
+                    <lightning-button class="button" variant="brand" label={changeEmailLabel} onclick={handleClickEmail} ></lightning-button>
+                    <lightning-button class="button" variant="brand" label={changePasswordLabel} onclick={handleClickPassword} ></lightning-button>
+                </div>
+                <div class='userDetails-marketing'>
+                <table>
+                    <tr>
+                        <td style="vertical-align: baseline;width:0px">
+                            
+                            <lightning-input aura:id="MarketingFlag" type="checkbox" name="MarketingFlag" checked={User.Marketing} onchange={handleChangeMarketing} ></lightning-input>
+                        </td>
+                        <td style="padding-right: 20%;">
+                            <h2 class="columnStyle"> {marketing_label1}&nbsp; 
+                            {marketing_label2}&nbsp; 
+                            {marketing_label3}&nbsp; 
+                            {marketing_label4} </h2>
+                        </td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+        </section>
+
+
+        <!--<aura:if isTrue="{!v.changePassword}">
+           <c:ChangePassword changePassword="{!v.changePassword}" />
+        </aura:if>
+        <aura:if isTrue="{!v.changeEmail}">
+            <div aura:id="editDialog" role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header modalHeader">
+                        <h2 class="slds-text-heading medium">{!v.changeEmailLabel}</h2>
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium slds-grid slds-wrap ">
+                        <lightning:input aura:id="Email" name="Email" label="{!v.emailLabel}" class="slds-p-horizontal_x-small" value="{!v.newEmail}" />
+                    </div>
+                    <div class="slds-modal__footer">
+                        <lightning:button variant="brand" label="{!$Label.c.saveLabel_cpa}" title="Brand action" onclick="{! c.handleSave }" />
+                        <lightning:button variant="brand" label="{!$Label.c.cancelLabel_cpa}" title="Brand action" onclick="{! c.handleClose }" />
+                    </div>
+                </div>
+            </div>
+            <div aura:id="overlay" class="slds-backdrop slds-backdrop open"></div>
+        </aura:if>
+        <aura:if isTrue="{!v.uploadPicture}">
+            <div aura:id="uploadPicturetDialog" role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header modalHeader">
+                        <h2 class="slds-text-heading medium">{!v.uploadPictureLabel}</h2>
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium slds-grid slds-wrap ">
+                        <lightning:fileUpload label="{!v.insertPictureLabel}" name="fileUploader" multiple="true" accept=".pdf, .png, .jpg, .jpeg" recordId="{!v.User.Id}" onuploadfinished="{!c.handleUploadFinished}" />
+                    </div>
+                    <div class="slds-modal__footer">
+
+                        <lightning:button variant="brand" label="{!$Label.c.cancelLabel_cpa}" title="Brand action" onclick="{! c.handleClosePic }" />
+                    </div>
+                </div>
+            </div>
+           
+            <div aura:id="overlay" class="slds-backdrop slds-backdrop open"></div>
+        </aura:if>
+        <aura:if isTrue="{!v.changeMarketing}">
+            <div aura:id="changeMarketingFlag" role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header modalHeader">
+                        <h2 class="slds-text-heading medium">{!v.changeMarketingTitle}</h2>
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium slds-grid slds-wrap ">
+                        {!v.changeMarketingAlertMessage}
+                    </div>
+                    <div class="slds-modal__footer">
+                        <lightning:button variant="brand" label="{!$Label.c.saveLabel_cpa}" title="Brand action" onclick="{! c.handleSaveMarketing }" />
+                        <lightning:button variant="brand" label="{!$Label.c.cancelLabel_cpa}" title="Brand action" onclick="{! c.handleCloseMarketing }" />
+                    </div>
+                </div>
+            </div>
+           
+            <div aura:id="overlay" class="slds-backdrop slds-backdrop open"></div>
+        </aura:if>
+        <aura:set attribute="else">
+            <h3>{!v.Error}</h3>
+        </aura:set>-->
+    </template>
+
+
+
+
+    
+</template>
