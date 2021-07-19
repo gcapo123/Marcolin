@@ -1,0 +1,62 @@
+{
+  "appPageId" : "aa916fae-2424-487a-9044-183612262bc1",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "id" : "06bb955a-5f61-41fb-9d33-8d208ae62e05",
+  "label" : "Login",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "salesforceIdentity:communityLogo2",
+      "id" : "9f5746bf-e4fb-4e34-879b-3710d5f753f4",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "forgotPasswordLabel" : "Forgot Password",
+        "forgotPasswordUrl" : "./ForgotPassword",
+        "loginButtonLabel" : "Log in",
+        "passwordLabel" : "Password",
+        "selfRegisterLabel" : "Not A Member?",
+        "selfRegisterUrl" : "./SelfRegister",
+        "startUrl" : "/",
+        "usernameLabel" : "Email"
+      },
+      "componentName" : "c:loginForm",
+      "id" : "e3a19b7d-323b-47b5-9f15-48bf8f398b9c",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p><a href=\"./ForgotPassword\" rel=\"noopener noreferrer\" target=\"_self\">Forgot Password</a> ?</p><p><br></p><p><a href=\"./SelfRegister\" rel=\"noopener noreferrer\" target=\"_self\">Not A Member ?</a></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "d3349410-46ec-4086-883e-db9f6a820504",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "135eaa39-0083-4922-a875-31a4e2efa5de",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Login"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "95452a28-1623-4b6b-8cf4-67838e5b5723",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "67789a90-7662-4dd0-bedd-6c06867351d0",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Login",
+  "type" : "view",
+  "viewType" : "login-home"
+}

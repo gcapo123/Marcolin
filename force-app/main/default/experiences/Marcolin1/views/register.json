@@ -1,0 +1,95 @@
+{
+  "appPageId" : "aa916fae-2424-487a-9044-183612262bc1",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "id" : "30789816-78df-4702-91d6-676583efcdaf",
+  "label" : "Register",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "salesforceIdentity:communityLogo2",
+      "id" : "70c6e288-bd53-4c0d-91e1-8fa46082af23",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "CompanyNameLabel" : "Company Name",
+        "FiscalCodeLabel" : "Fiscal Code",
+        "FiscalDrawerLabel" : false,
+        "FiscalDriverLabel" : false,
+        "Link" : "Link",
+        "MarketingFlagLabel" : false,
+        "PECLabel" : "PEC",
+        "PrivacyFlagLabel" : false,
+        "SDILabel" : "SDI",
+        "TermsFlagLabel" : false,
+        "VATCodeLabel" : "VAT Code",
+        "codiceFiscaleLabel" : "Fiscal Code",
+        "confirmEmailLabel" : "Confirm Email",
+        "confirmPasswordLabel" : "Confirm Password",
+        "countryLabel" : "Country",
+        "emailLabel" : "Email",
+        "extraFieldsFieldSet" : "",
+        "firstnameLabel" : "First Name",
+        "includeEmailField" : false,
+        "includePasswordField" : false,
+        "industryLabel" : "Country",
+        "lastnameLabel" : "Last Name",
+        "passwordLabel" : "Create Password",
+        "phoneLabel" : "Phone",
+        "pivaLabel" : "piva",
+        "regConfirmUrl" : "./CheckPasswordResetEmail",
+        "sirenLabel" : "SIREN",
+        "siretLabel" : "SIRET",
+        "startUrl" : "",
+        "submitButtonLabel" : "Sign Up"
+      },
+      "componentName" : "c:selfRegister",
+      "id" : "f808beea-7710-45b4-ba48-1cb0835e09ba",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "headerText" : "",
+        "showHeader" : false,
+        "useCommunityDomainSso" : false
+      },
+      "componentName" : "salesforceIdentity:socialLogin2",
+      "id" : "47650d13-a856-48b4-b06c-61ff4756ceae",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><a href=\"../login\" rel=\"noopener noreferrer\" target=\"_self\">Already have an account?</a></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "fff4e820-031f-482b-86b5-d934ba227d94",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f87750a7-55cd-4067-b0ae-e9504c3ae882",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Register"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "00ebdc20-3018-42ff-95c9-64806b1fccb1",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e1621a90-3ff8-4141-9a2e-481826f45711",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Login",
+  "type" : "view",
+  "viewType" : "self-register"
+}

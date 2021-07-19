@@ -1,0 +1,115 @@
+.THIS .lgc-bg {
+    background-color: rgb(242, 242, 242);
+}
+.THIS .lgc-bg-inverse {
+    background-color: rgb(22, 50, 92);
+}
+.THIS div.sfdc {
+    margin: 12px 0;
+}
+.THIS .sfdc .single, .THIS input.sfdc {
+    margin-top: 6px;
+}
+.THIS #sfdc_user {
+    float: right;
+    width: 23px;
+    height: 1px;
+    padding-top: 0px;
+    padding-left: 0px;
+    margin: 0px;
+
+}
+
+.THIS #sfdc_extrafield_container {
+    margin-bottom: 10px;
+    padding: 12px;
+    background-color: white;
+    border: 1px solid #CCC;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.THIS #sfdc_lock {
+    float: right;
+    width: 23px;
+    height: 1px;
+    padding-top: 1px;
+    padding-left: 2px;
+    margin: 0px;
+}
+
+.THIS .login-icon {
+    color: #ccc;
+    font-size: 22px;
+}
+
+.THIS button.sfdc_button {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #fff;
+    background-color: rgb(8, 42, 55);
+    border-color: rgb(8, 42, 55);
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 10px 12px;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.42857143;
+    border-radius: 2px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.THIS button:hover {
+    background-color: #3276b1;
+    border-color: #285e8e;
+    cursor: pointer;
+}
+
+.THIS .customInput.slds-has-error .slds-input {
+    border-color: var(--lwc-colorBorderInput, #D4D4D4);
+    box-shadow: unset;
+}
+.THIS .slds-form-element__help {
+    display: none !important;
+}
+
+.THIS #sfdc_forgot {
+    font-family: 'Open Sans', 'sans-serif';
+    font-weight: 300;
+    font-size: 1px;
+    margin-top: 1px
+}
+
+.THIS #error {
+    text-align: center;
+    color: #FF0000;
+}
+
+.THIS .termCondition {
+    margin: 2rem 0 1rem;
+}
+.THIS .termCondition a {
+    color: #015ba7;
+}
+.THIS .termCondition a:hover, .THIS .termCondition a:focus {
+    text-decoration: underline;
+}
+.THIS .termCondition tr td:first-child {
+    font-size: 10px;
+    width: 32px;
+    text-align: end;
+}
+.THIS .termCondition td {
+    vertical-align: top;
+    font-size: 12px;
+    padding-bottom: 1rem;
+}

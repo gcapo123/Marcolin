@@ -1,0 +1,32 @@
+<design:component label="Custom Self Register">
+    <design:attribute name="startUrl"/>
+    <design:attribute name="regConfirmUrl" default="./CheckPasswordResetEmail"/>
+    <design:attribute name="firstnameLabel" default="First Name"/>
+    <design:attribute name="lastnameLabel" default="Last Name"/>
+    <design:attribute name="emailLabel" default="Email"/>
+    <design:attribute name="confirmEmailLabel" default="Confirm Email" /> 
+    <design:attribute name="CompanyNameLabel" default="Company Name" />
+    <design:attribute name="VATCodeLabel" default="VAT Code" />
+    <design:attribute name="pivaLabel" />
+    <design:attribute name="phoneLabel" default="Phone" />
+    <design:attribute name="passwordLabel" default="Create Password"/>
+    <design:attribute name="confirmPasswordLabel" default="Confirm Password"/>
+    <design:attribute name="submitButtonLabel" default="Sign Up"/>
+    <design:attribute name="includePasswordField" default="false"/>
+    <design:attribute name="includeEmailField" default="false"/>
+    <design:attribute name="extraFieldsFieldSet"/>
+    <design:attribute name="PECLabel" default="PEC"/>
+    <design:attribute name="SDILabel" default="SDI"/>
+    <design:attribute name="FiscalCodeLabel" default="Fiscal Code"/>
+    <design:attribute name="codiceFiscaleLabel" default="Fiscal Code"/>
+    <design:attribute name="sirenLabel" default="SIREN"/>
+    <design:attribute name="siretLabel" default="SIRET"/>
+    <design:attribute name="Link" default="Link"/>
+    <design:attribute name="PrivacyFlagLabel" default="Privacy Flag" />
+    <design:attribute name="MarketingFlagLabel" default="Marketing Flag" />
+    <design:attribute name="TermsFlagLabel" default="Terms Flag" />
+    <design:attribute name="FiscalDriverLabel" default="Fiscal Driver" />
+    <design:attribute name="FiscalDrawerLabel" default="Fiscal Drawer" />
+    <design:attribute name="industryLabel" default="Country"/>
+    <design:attribute name="countryLabel" default="Country"/>
+</design:component>

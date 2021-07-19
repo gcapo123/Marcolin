@@ -1,0 +1,103 @@
+<!-- add implements="forceCommunity:availableForAllPageTypes" to surface the component in community builder -->
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="regConfirmUrl" type="String" required="true" />
+    <aura:attribute name="startUrl" type="String" required="false" description="The url you go to after a successful login" />
+    <aura:attribute name="showError" type="Boolean" required="true" description="" default="false" access="private" />
+    <aura:attribute name="errorMessage" type="String" required="false" description="" access="private" />
+    <aura:attribute name="countryLabel" type="String" required="true" default="['', 'Italy','France']" />
+    <aura:attribute name="firstnameLabel" type="String" required="true" default="First Name" />
+    <aura:attribute name="lastnameLabel" type="String" required="true" default="Last Name" />
+    <aura:attribute name="emailLabel" type="String" required="true" default="Email" />
+    <aura:attribute name="confirmEmailLabel" type="String" required="true" default="Confirm Email" />
+    <aura:attribute name="CompanyNameLabel" type="String" required="true" default="Company Name" />
+    <aura:attribute name="VATCodeLabel" type="String" required="true" default="VAT Code" />
+    <aura:attribute name="pivaLabel" type="String" required="true" default="piva" />
+    <aura:attribute name="phoneLabel" type="String" required="true" default="Phone" />
+    <aura:attribute name="passwordLabel" type="String" required="false" default="Create Password" />
+    <aura:attribute name="infoPIVA" type="String" default="" />
+    <aura:attribute name="confirmPasswordLabel" type="String" required="false" default="Confirm Password" />
+    <aura:attribute name="submitButtonLabel" type="String" required="false" default="Sign Up" />
+    <aura:attribute name="includePasswordField" type="Boolean" required="false" default="false" description="Whether to include password" />
+    <aura:attribute name="includeEmailField" type="Boolean" required="true" default="true" description="Whether to include email" />
+    <aura:attribute name="codiceFiscaleLabel" type="String" default="Fiscal Code" required="false" />
+    <aura:attribute name="extraFieldsFieldSet" type="String" required="false" description="A field set name whose fields are desired for user registration" />
+    <aura:attribute name="extraFields" type="list" required="false" description="A field set name whose fields are desired for user registration" />
+    
+    <aura:attribute name="FiscalDriverLabel" type="Boolean" />
+    <aura:attribute name="expid" type="String" required="false" description="The branding experience ID" />
+    <aura:attribute name="PrivacyFlagLabel" type="Boolean" default="false" />
+    <aura:attribute name="MarketingFlagLabel" type="Boolean" />
+    <aura:attribute name="TermsFlagLabel" type="Boolean" />
+    <aura:attribute name="industryLabel" type="String" required="true" default="Country" />
+    <aura:attribute name="SDILabel" type="String" default="SDI" />
+    <aura:attribute name="PECLabel" type="String" default="PEC" required="true" />
+    <aura:attribute name="FiscalCodeLabel" type="String" default="Fiscal Code" required="true" />
+    <aura:attribute name="sirenLabel" type="String" default="SIREN" required="true" />
+    <aura:attribute name="siretLabel" type="String" default="SIRET" required="true" />
+    <aura:attribute name="FiscalDrawerLabel" type="Boolean" />
+
+    <aura:attribute name="Link" type="String" default="Link" />
+    <aura:attribute name="notCopyPaste" type="String" />
+    <aura:attribute name="Email" type="String" />
+    <!-- Please uncomment
+    <aura:dependency resource="siteforce:registerQueryEventMap" type="EVENT"/>
+    -->
+
+    <div>
+        
+    </div>
+    
+    
+    
+    <div id="sfdc_register_form" class="sfdc">
+        <aura:renderIf isTrue="{!v.showError}">
+            <div id="error">
+                <ui:outputRichText value="{!v.errorMessage}" />
+            </div>
+        </aura:renderIf>
+
+
+
+
+        <lightning:input aura:id="NewPassword" type="password" label="NEW PASSWORD" name="NewPassword" required="true" value="{!v.newPassword}" />
+        <lightning:input aura:id="RepeatPassword" type="password" label="CONFIRM NEW PASSWORD" name="RepeatPassword" required="true" value="{!v.repeatPassword}" />
+          
+        
+    
+
+        <div class='termCondition'>
+            <table>
+                <tr>
+                    <td>
+                        <lightning:input type="checkbox" placeholder="{!v.PrivacyFlagLabel}" aura:id="privacyFlag" variant="label-hidden" required="true" />
+                    </td>
+                    <td>
+                        <span>Declare to read &nbsp;<a target="_blank" href="epta/s/privacy-policy">Privacy Policy</a>&nbsp;and accept.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <lightning:input type="checkbox" aura:id="termsFlag" variant="label-hidden" placeholder="{!v.TermsFlagLabel}" required="true" />
+                    </td>
+                    <td>
+                        <span>I have read, understood and accepted the&nbsp;<a target="_blank" href="/epta/s/terms-and-conditions">Terms and Conditions</a>.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <lightning:input type="checkbox" aura:id="marketingFlag" variant="label-hidden" placeholder="{!v.MarketingFlagLabel}" required="false" />
+                    </td>
+                    <td>
+                        <p style="text-align:justify">I consent to the processing of my personal data for sending via whatsapp, SMS and / or e-mail communications for promotional, commercial, marketing and
+                                    direct sales, as well as a newsletter from Epta SpA in relation to own initiatives and / or initiatives of subsidiaries and / or associates.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="sfdc">
+            <ui:button aura:id="submitButton" label="Sign Up" class="sfdc_button" />
+        </div>
+    </div>
+</aura:component>
