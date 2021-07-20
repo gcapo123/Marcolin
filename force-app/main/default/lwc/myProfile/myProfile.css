@@ -53,6 +53,14 @@
     font-size: x-large;
     margin-top: 10px;
 }
+
+.localeSection{
+    margin-bottom: 100px;
+}
+
+.localeButton{
+    margin-top:20px;
+}
 .userDetails-container {
     display: flex;
     flex: 1 0 auto;

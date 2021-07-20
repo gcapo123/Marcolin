@@ -12,6 +12,7 @@
     <targetConfigs>
         <targetConfig targets="lightningCommunity__Default,lightning__HomePage">
             <property name="title" type="String" label ="Title" />
+            <property name="titleLocale" type="String" label ="Title Locale" />
             <property name="labelName" type="String" label ="Name" />
             <property name="labelUsername" type="String" label ="Username"/>
             <property name="labelPhone" type="String" label ="Phone"/>

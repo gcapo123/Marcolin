@@ -1,6 +1,8 @@
 import { LightningElement,wire,track,api } from 'lwc';
 import Id from '@salesforce/user/Id';
 import getUserInfo from '@salesforce/apex/MyProfileController.getUserInfo';
+import getLanguagePicklist from '@salesforce/apex/MyProfileController.getLanguagePicklist';
+import getTimezonePicklist from '@salesforce/apex/MyProfileController.getTimezonePicklist';
 import errorMess from '@salesforce/label/c.MyProfile_ErrorMsg';
 import marketing_label1 from '@salesforce/label/c.marketing_label1';
 import marketing_label2 from '@salesforce/label/c.marketing_label2';
@@ -13,6 +15,7 @@ import userAvatar from '@salesforce/resourceUrl/userAvatar';
 
 export default class MyProfile extends LightningElement {
     
+    userId = Id
     @api  labelName ='Name'
     @api  labelCountry ='Country'
     @api  labelUsername='Username'
@@ -24,6 +27,7 @@ export default class MyProfile extends LightningElement {
     @api  labelTimezone='Timezone'
     @api  labelGoodCredit='Good Credit'
     @api  title = 'User Details'
+    @api  titleLocale = 'Locale Settings'
     @api  labelChangeInfo = 'Edit'
     @api  labelChangePassword = 'Change Password'
     @api  labelChangeMarketing = 'Change Your Marketing Settings'
@@ -38,13 +42,19 @@ export default class MyProfile extends LightningElement {
     @track changeInfo = false
     @track changeMarketing = false
     @track changePassword = false
-
-    userId = Id
+    @track languagePicklist = []
+    @track timezonePicklist = []
+    @track chosenLanguage = null;
+    @track chosenLanguageId = null;
+    @track chosenTimezone = null;
+    @track chosenTimezoneId = null;
+    
     @track errormsg = null;
     @track save = save;
     @track cancel = cancel;
-    @track user={'name':null,'username':null,'profilePic':null,'country':null,'phone':null,'email':null,'goodCredit':null, 'language':null, 'timezone':null,'VAT':null,'company':null}
+    @track user={'name':null,'username':null,'profilePic':null,'country':null,'phone':null,'email':null,'goodCredit':null, 'language':null,'languageId':null, 'timezone':null,'timezoneId':null,'VAT':null,'company':null}
     @track marketing = false;
+    @track checkMarketing = false;
 
     @wire(getUserInfo,{userId:'$userId'})
     wireGetUserInfo({error, data}) {
@@ -57,12 +67,46 @@ export default class MyProfile extends LightningElement {
             this.user.phone = info.phone;
             this.user.email = info.email;
             //this.user.goodCredit = info.goodCredit;
-            //this.user.language = info.language;
-            //this.user.timezone = info.timezone;
+            this.user.language = info.language;
+            this.user.languageId = info.languageId;
+            this.user.timezone = info.timezone;
+            this.user.timezoneId = info.timezoneId;
             //this.user.VAT = info.VAT;
             this.user.company = info.company;
             //this.marketing = info.marketing == 'true'?true:false;
+            this.checkMarketing = this.marketing;
             this.errormsg = null;
+            this.chosenTimezone = this.user.timezone;
+            this.chosenTimezoneId = this.user.timezoneId;
+            this.chosenLanguage = this.user.language;
+            this.chosenLanguageId = this.user.languageId;
+        }else{
+            this.errormsg = errorMess;
+        }
+    }
+
+    @wire(getLanguagePicklist)
+    getUserLanguagePicklist({error,data}){
+        if(data && data != null){
+            let res = JSON.parse(data)
+            for (const [key, value] of Object.entries(res)) {
+                this.languagePicklist.push({value:key,label:value});
+            }
+           
+        }else{
+            this.errormsg = errorMess;
+        }
+    }
+
+    @wire(getTimezonePicklist)
+    getUserTimezonePicklist({error,data}){
+        if(data && data != null){
+            let res =JSON.parse(data);
+            for (const [key, value] of Object.entries(res)) {
+                this.timezonePicklist.push({value:key,label:value})
+            }
+            
+           
         }else{
             this.errormsg = errorMess;
         }
@@ -74,6 +118,22 @@ export default class MyProfile extends LightningElement {
 
     get hasPicture(){
         return this.user.profilePic !=null && this.user.profilePic!=''?true:false
+    }
+
+    get langOptions(){
+        let pickLang = this.languagePicklist.map(o=>{
+            return {value:o.value,label:o.label}
+        });
+       
+        return pickLang;
+    }
+
+    get timeOptions(){
+        let pickTime = this.timezonePicklist.map(o=>{
+            return {value:o.value,label:o.label}
+        });
+        
+        return pickTime;
     }
 
     handleChangeInfo(){
@@ -100,18 +160,53 @@ export default class MyProfile extends LightningElement {
         this.changePassword = false;
     }
 
-    handleChangeMarketing(){
+    handleChangeMarketing(event){
         this.changeMarketing = true;
+        this.marketing = event.target.checked;
     }
 
     saveChangeMarketing(){
         this.changeMarketing = false;
+        this.marketing = this.checkMarketing;
+        
     }
 
     closeChangeMarketing(){
         this.changeMarketing = false;
-        console.log(this.marketing)
+        this.checkMarketing = this.marketing;
+
         
+    }
+
+    handleChangeLanguage(event) {
+        this.chosenLanguageId = event.detail.value;
+        for(let el of this.languagePicklist){
+            if(el.value == this.chosenLanguageId){
+                this.chosenLanguage = el.label;
+            }
+        }
+    }
+
+    handleChangeTimezone(event) {
+        this.chosenTimezoneId = event.detail.value;
+        for(let el of this.timezonePicklist){
+            if(el.value == this.chosenTimezoneId){
+                this.chosenTimezone = el.label;
+            }
+        }
+    }
+
+    saveChangeLocale(){
+        this.user.languageId = this.chosenLanguageId;
+        this.user.language = this.chosenLanguage;
+        this.user.timezoneId = this.chosenTimezoneId;
+        this.user.timezone = this.chosenTimezone;
+       
+    }
+
+    resetLocale(){
+        console.log(this.user.timezoneId);
+        console.log(this.user.languageId);
     }
 
 

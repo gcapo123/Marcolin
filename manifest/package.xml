@@ -3,7 +3,8 @@
 
     <types>
         <members>Account</members>
-        <members>salesStore</members>
+        <members>ContactPointAddress</members>
+        <members>SalesStore</members>
         <members>Site</members>
         <members>ProductCategory</members>
         <members>ProductCatalog</members>
@@ -22,6 +23,7 @@
     </types>
     <types>
         <members>MyProfile</members>
+        <members>ckz_Footer</members>
         <name>LightningComponentBundle</name>
     </types>
     <types>
@@ -31,6 +33,12 @@
     <types>
         <members>*</members>
         <name>StaticResource</name>
+    </types>
+
+    <types>
+        <members>Account-Account Layout</members>
+        <members>BuyerAccount-Buyer Account Layout</members>
+        <name>Layout</name>
     </types>
 
     <types>

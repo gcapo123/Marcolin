@@ -1,0 +1,230 @@
+<template>
+  <footer class="ckz_footer slds-var-p-vertical_medium slds-var-p-horizontal_medium" style={footerStyles}>
+    <div class="slds-grid slds-gutters slds-wrap">
+      <div class="slds-col slds-size_1-of-3 firstCol">
+        <template if:true={showImage}>
+          <div class="slds-var-m-bottom_x-large">
+            <img src={logo} style="height=50px;"/>
+          </div>
+        </template>
+
+        <ul class="footer-link-list slds-list_horizontal slds-has-inline-block-links_space">
+          <template if:true={socialFacebook}>
+            <li>
+              <a href={facebookLink} class="social">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x fa-inverse"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x"></i>
+                </span>
+              </a>
+            </li>
+          </template>
+
+          <template if:true={socialTwitter}>
+            <li>
+              <a href={twitterLink} class="social">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x fa-inverse"></i>
+                  <i class="fab fa-twitter fa-stack-1x"></i>
+                </span>
+              </a>
+            </li>
+          </template>
+
+          <template if:true={socialLinkedin}>
+            <li>
+              <a href={linkedinLink} class="social">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x fa-inverse"></i>
+                  <i class="fab fa-linkedin fa-stack-1x"></i>
+                </span>
+              </a>
+            </li>
+          </template>
+
+          <template if:true={socialInstagram}>
+            <li>
+              <a href={instagramLink} class="social">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x fa-inverse"></i>
+                  <i class="fab fa-instagram fa-stack-1x"></i>
+                </span>
+              </a>
+            </li>
+          </template>
+
+          <template if:true={socialYoutube}>
+            <li>
+              <a href={youtubeLink} class="social">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x fa-inverse"></i>
+                  <i class="fab fa-youtube fa-stack-1x"></i>
+                </span>
+              </a>
+            </li>
+          </template>
+        </ul>
+        <template if:true={hasCta}>
+          <div class="slds-text-heading_large slds-var-m-top_large">
+            {ctaText}
+          </div>
+        </template>
+      </div>
+
+      <div class="slds-col slds-size_2-of-3 " style="color:black; padding-left:10%">
+        <div class="slds-grid slds-gutters slds-wrap">
+          <!-- SECTION 1 -->
+          <div class={nColumnsClassStyle}>
+            <div class="slds-text-heading_medium slds-var-m-bottom_small">
+              {colOneHeading}
+            </div>
+
+            <ul class="slds-has-block-links_space">
+              <li>
+                <a class="myLinkColor" href={colOneLinkOneURL} target='_blank'>{colOneLinkOneText}</a>
+              </li>
+              <li>
+                <a class="myLinkColor" href={colOneLinkTwoURL} target='_blank'>{colOneLinkTwoText}</a>
+              </li>
+              <template if:true={showFiveLinksColOne}>
+                <li>
+                  <a class="myLinkColor" href={colOneLinkThreeURL} target='_blank'>{colOneLinkThreeText}</a>
+                </li>
+                <li>
+                  <a class="myLinkColor" href={colOneLinkFourURL} target='_blank'>{colOneLinkFourText}</a>
+                </li>
+                <li>
+                  <a class="myLinkColor" href={colOneLinkFiveURL} target='_blank'>{colOneLinkFiveText}</a>
+                </li>
+              </template>
+            </ul>
+          </div>
+
+          <!-- SECTION 2 -->
+          <template if:true={showSecondColumn}>
+            <div class={nColumnsClassStyle}>
+              <div class="slds-text-heading_medium slds-var-m-bottom_small">
+                {colTwoHeading}
+              </div>
+
+              <ul class="slds-has-block-links_space">
+                <li>
+                  <a class="myLinkColor" href={colTwoLinkOneURL} target='_blank'>{colTwoLinkOneText}</a>
+                </li>
+                <li>
+                  <a class="myLinkColor" href={colTwoLinkTwoURL} target='_blank'>{colTwoLinkTwoText}</a>
+                </li>
+                <li>
+                  <a class="myLinkColor" href={colTwoLinkThreeURL} target='_blank'>{colTwoLinkThreeText}</a>
+                </li>
+                <template if:true={showFiveLinksColTwo}>
+                  <li>
+                    <a class="myLinkColor" href={colTwoLinkFourURL} target='_blank'>{colTwoLinkFourText}</a>
+                  </li>
+                  <li>
+                    <a class="myLinkColor" href={colTwoLinkFiveURL} target='_blank'>{colTwoLinkFiveText}</a>
+                  </li>
+                </template>
+              </ul>
+            </div>
+          </template>
+
+          <!-- SECTION 3 -->
+          <div class={nColumnsClassStyle}>
+            <div class="slds-text-heading_medium slds-var-m-bottom_small">
+              {colThreeHeading}
+            </div>
+
+            <ul class="slds-has-block-links_space">
+              <li>
+                <!--<lightning-button variant="base" style="sds-c-button-text-color: white;" label={colThreeLinkOneText} title={colThreeLinkOneText} onclick={handleClickContacts} class="slds-m-left_x-small"></lightning-button>-->
+                <a class="myLinkColor" href={contacts} target='_blank'>{colThreeLinkOneText}</a>
+              </li>
+              <li>
+                <a class="myLinkColor" href={privacy} target='_blank'>{colThreeLinkTwoText} </a>
+              </li>
+              <li>
+                <a class="myLinkColor" href={conditions} target='_blank'>{colThreeLinkThreeText} </a>
+                <!--<lightning-button variant="base" style="sds-c-button-text-color: white;" label={colThreeLinkThreeText} title={colThreeLinkThreeText} onclick={handleClickConditions} class="slds-m-left_x-small"></lightning-button>-->
+              </li>
+              <li>
+                <a class="myLinkColor" href={conditionsSales} target='_blank'>{colThreeLinkFourText} </a>
+             <!--<lightning-button variant="base" style="sds-c-button-text-color: white;" label={colThreeLinkFourText} title={colThreeLinkFourText} onclick={handleClickConditionsSales} class="slds-m-left_x-small"></lightning-button>-->
+              </li>
+              <template if:true={showFiveLinksColThree}>
+                <li>
+                  <a class="myLinkColor" href={colThreeLinkFiveURL} target='_blank'>{colThreeLinkFiveText}</a>
+                </li>
+              </template>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <template if:true={showImage}>
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_12-of-12">
+          <div class="slds-align_absolute-center">
+            <img src={imgUrl} style={imageStyles} />
+          </div>
+        </div>
+      </div>
+    </template> -->
+
+    <!-- <div class="slds-grid slds-gutters">
+      <div class="slds-col slds-size_12-of-12">
+        <div
+          class="footer-link slds-var-m-top_medium slds-align_absolute-center"
+        >
+          <ul
+            class="footer-link-list slds-list_horizontal slds-has-inline-block-links_space"
+          >
+            <template if:true={socialFacebook}>
+              <li>
+                <a href="#" class="social">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x fa-inverse"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                  </span>
+                </a>
+              </li>
+            </template>
+
+            <template if:true={socialTwitter}>
+              <li>
+                <a href="#" class="social">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x fa-inverse"></i>
+                    <i class="fab fa-twitter fa-stack-1x"></i>
+                  </span>
+                </a>
+              </li>
+            </template>
+
+            <template if:true={socialLinkedin}>
+              <li>
+                <a href="#" class="social">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x fa-inverse"></i>
+                    <i class="fab fa-linkedin fa-stack-1x"></i>
+                  </span>
+                </a>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+
+    <template if:true={showExpCloudLogo}>
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_12-of-12">
+          <div class="slds-align_absolute-center">
+            <span class="footer-logo-commerceCloud"></span>
+          </div>
+        </div>
+      </div>
+    </template>
+  </footer>
+</template>

@@ -35,7 +35,7 @@
                 "locked" : false,
                 "seedComponents" : [ ],
                 "tabKey" : "1",
-                "tabName" : "Account Details"
+                "tabName" : "User Details"
               }, {
                 "UUID" : "5ba5b908-31e9-4f49-987d-6089a4ff8250",
                 "allowGuestUser" : false,
@@ -59,6 +59,9 @@
           "regions" : [ {
             "components" : [ {
               "componentAttributes" : {
+                "labelChangeInfo" : "Edit",
+                "labelChangeMarketing" : "Change Your Marketing Settings",
+                "labelChangeMarketingText" : "Are you sure you want to change your marketing settings?",
                 "labelCountry" : "Country",
                 "labelEmail" : "Email Address",
                 "labelGoodCredit" : "Good Credit",
@@ -67,15 +70,16 @@
                 "labelPhone" : "Phone Number",
                 "labelTimezone" : "Timezone",
                 "labelUsername" : "Username",
-                "labelVat" : "VAT Code"
+                "labelVat" : "VAT Code",
+                "title" : "User Details"
               },
               "componentName" : "c:myProfile",
-              "id" : "eb27f783-aff3-4a81-949d-230129a77363",
+              "id" : "5ccc34dd-3c5d-41ee-9e61-66dc464892b4",
               "renditionMap" : { },
               "type" : "component"
             } ],
             "id" : "3b39ea07-0bad-490a-b152-0155d1177e4a",
-            "regionLabel" : "Account Details",
+            "regionLabel" : "User Details",
             "regionName" : "1",
             "renditionMap" : { },
             "type" : "region"
@@ -99,10 +103,10 @@
               "componentAttributes" : {
                 "customTitle" : "",
                 "parentRecordId" : "{!CurrentUser.effectiveAccountId}",
-                "relatedListName" : "ContactPointAddress",
-                "showBreadCrumbs" : true,
+                "relatedListName" : "ContactPointAddresses",
+                "showBreadCrumbs" : false,
                 "showCustomTitle" : false,
-                "showManualRefreshButton" : true,
+                "showManualRefreshButton" : false,
                 "showRowNumbers" : true
               },
               "componentName" : "forceCommunity:relatedList",
