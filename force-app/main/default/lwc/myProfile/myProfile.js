@@ -10,6 +10,7 @@ import marketing_label3 from '@salesforce/label/c.marketing_label3';
 import marketing_label4 from '@salesforce/label/c.marketing_label4';
 import save from '@salesforce/label/c.save';
 import cancel from '@salesforce/label/c.cancel';
+import addContact from '@salesforce/apex/AddContactController.addContact';
 
 import userAvatar from '@salesforce/resourceUrl/userAvatar';
 
@@ -29,16 +30,19 @@ export default class MyProfile extends LightningElement {
     @api  title = 'User Details'
     @api  titleLocale = 'Locale Settings'
     @api  labelChangeInfo = 'Edit'
+    @api  labelAddContact = 'Add Contact'
     @api  labelChangePassword = 'Change Password'
     @api  labelChangeMarketing = 'Change Your Marketing Settings'
     @api  labelChangeMarketingText = 'Are you sure you want to change your marketing settings?'
     @api  labelChangeInfoTitle = 'Edit your User Details'
+    @api  labelAddContactTitle = 'Add new contact'
     @api  labelChangePasswordTitle = 'Change Your Password'
     @track marketing_label1=marketing_label1
     @track marketing_label2=marketing_label2
     @track marketing_label3=marketing_label3
     @track marketing_label4=marketing_label4
     @track userAvatar = userAvatar
+    @track AddContact = false
     @track changeInfo = false
     @track changeMarketing = false
     @track changePassword = false
@@ -52,7 +56,8 @@ export default class MyProfile extends LightningElement {
     @track errormsg = null;
     @track save = save;
     @track cancel = cancel;
-    @track user={'name':null,'username':null,'profilePic':null,'country':null,'phone':null,'email':null,'goodCredit':null, 'language':null,'languageId':null, 'timezone':null,'timezoneId':null,'VAT':null,'company':null}
+    @track contact = {'firstname': null, 'lastname':null, 'email':null, 'phone':null}
+    @track user={'name':null,'username':null,'profilePic':null,'country':null,'phone':null,'email':null,'goodCredit':null, 'language':null,'languageId':null, 'timezone':null,'timezoneId':null,'VAT':null,'company':null, 'AccountId':null}
     @track marketing = false;
     @track checkMarketing = false;
 
@@ -133,8 +138,56 @@ export default class MyProfile extends LightningElement {
             return {value:o.value,label:o.label}
         });
         
-        return pickTime;
+        return pickTime; 
     }
+
+    updatefields(event){
+        let field = event.target.name;
+        console.log(field);
+        if (field == 'FirstName') {
+            this.contact.firstname=event.target.value;
+        } 
+
+        else if (field == 'LastName') {
+            this.contact.lastname=event.target.value;
+        } 
+
+        else if (field == 'Email') {
+            this.contact.email=event.target.value;
+        } 
+
+        else if (field == 'Phone') {
+            this.contact.phone=event.target.value;
+        } 
+    }
+
+    handleAddContact(){
+        this.AddContact = true;
+    }
+
+    closeAddContact(){
+        this.AddContact = false;
+    }
+
+    saveAddContact(){
+
+        console.log(this.userId);
+        console.log(this.contact);
+
+        addContact({
+            firstname:this.contact.firstname, 
+            lastname:this.contact.lastname,
+            email:this.contact.email,
+            phone:this.contact.phone,
+            userId:this.userId
+
+        }).then((result)=>{
+                
+                    this.AddContact=false;
+                
+            }).catch((error)=>this.errormsg=error)
+    }
+
 
     handleChangeInfo(){
         this.changeInfo = true;
