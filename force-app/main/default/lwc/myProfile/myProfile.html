@@ -76,6 +76,7 @@
                 </div>
 
                 <div class='userDetails-info-action'>
+                    <lightning-button class="button" variant="brand" label={labelAddContact} onclick={handleAddContact} ></lightning-button>
                     <lightning-button class="button" variant="brand" label={labelChangeInfo} onclick={handleChangeInfo} ></lightning-button>
                     <lightning-button class="button" variant="brand" label={labelChangePassword} onclick={handleChangePassword} ></lightning-button>
                 </div>
@@ -148,6 +149,41 @@
                     <footer class="slds-modal__footer">
                         <button class="slds-button slds-button_neutral" onclick={closeChangeMarketing} title="Cancel">{cancel}</button>
                         <button class="slds-button slds-button_brand" onclick={saveChangeMarketing} title="Save">{save}</button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+
+        </template>
+
+        <template if:true={AddContact}>
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-06" aria-modal="true" aria-describedby="modal-content-id-6" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box LWC header here -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeAddContact}>
+                            <lightning-icon icon-name="utility:close"
+                                alternative-text="close"
+                                variant="inverse"
+                                size="small" ></lightning-icon>
+                            <span class="slds-assistive-text">{cancel}</span>
+                        </button>
+                        <h2 id="modal-heading-06" class="slds-text-heading_medium slds-hyphenate">{labelAddContactTitle}</h2>
+                    </header>
+                    <!-- Modal/Popup Box LWC body starts here -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-6">
+                        <lightning-input name="FirstName" onchange={updatefields} label="First Name" class="slds-p-horizontal_x-small" value={contact.firstname} ></lightning-input>
+                        <lightning-input name="LastName" onchange={updatefields} label="Last Name" class="slds-p-horizontal_x-small" value={contact.lastname} ></lightning-input>
+                        <lightning-input name="Email" onchange={updatefields} label="Email" class="slds-p-horizontal_x-small" value={contact.email} ></lightning-input>
+                        <lightning-input name="Phone" onchange={updatefields} label="Phone" class="slds-p-horizontal_x-small" value={contact.phone} ></lightning-input>
+                        
+                    </div>
+                    
+                    <!-- Modal/Popup Box LWC footer starts here -->
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={closeAddContact} title="Cancel">{cancel}</button>
+                        <button class="slds-button slds-button_brand" onclick={saveAddContact} title="Save">{save}</button>
                     </footer>
                 </div>
             </section>
