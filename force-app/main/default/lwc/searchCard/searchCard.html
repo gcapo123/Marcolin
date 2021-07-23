@@ -7,20 +7,45 @@
         </section>
 
         <section class="fields-area">
-            <template for:each={fields} for:item="field">
-                <a
-                    key={field.id}
-                    title={field.value}
-                    tabindex={field.tabIndex}
-                    class="field-item slds-text-link_reset slds-p-top_xx-small slds-p-bottom_xx-small"
-                    onclick={notifyShowDetail}
-                >
-                    <lightning-formatted-rich-text
-                        class={field.class}
-                        value={field.value}
-                    ></lightning-formatted-rich-text>
-                </a>
-            </template>
+         
+                        <template for:each={fields} for:item="field">
+                            <a
+                                key={field.id}
+                                title={field.value}
+                                tabindex={field.tabIndex}
+                                class="field-item slds-text-link_reset slds-p-top_xx-small slds-p-bottom_xx-small"
+                                onclick={notifyShowDetail}
+                            >
+                                <lightning-formatted-rich-text
+                                    class={field.class}
+                                    value={field.value}
+                                ></lightning-formatted-rich-text>
+                            </a>
+                        </template>
+                 
+                    <template if:true={hasVariations}>
+                        
+                            
+                            <lightning-combobox
+                            name="Color__c"
+                            label="Color"
+                            value={chosenVarColor}
+                            placeholder="Choose Your Color"
+                            options={optionsColor}
+                            onchange={handleChangeColor} ></lightning-combobox>
+
+                            <lightning-combobox
+                            name="Size__c"
+                            label="Size"
+                            value={chosenVarSize}
+                            placeholder="Choose Your Size"
+                            options={optionsSize}
+                            onchange={handleChangeSize} ></lightning-combobox>
+
+                       
+                    </template>
+             
+           
         </section>
         <section class="price-area">
             <span

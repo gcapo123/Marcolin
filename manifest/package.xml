@@ -19,11 +19,20 @@
     </types>
     <types>
         <members>MyProfileController</members>
+        <members>B2BSearchControllerSample</members>
+        <members>B2BGetInfo</members>
         <name>ApexClass</name>
     </types>
     <types>
         <members>MyProfile</members>
         <members>ckz_Footer</members>
+        <members>searchCard</members>
+        <members>cmsResourceResolver</members>
+        <members>searchCategory</members>
+        <members>searchFilter</members>
+        <members>searchLayout</members>
+        <members>searchPaginator</members>
+        <members>searchResult</members>
         <name>LightningComponentBundle</name>
     </types>
     <types>
@@ -59,6 +68,20 @@
     <types>
         <members>*</members>
         <name>ExperienceBundle</name>
+    </types>
+    <types>
+        <members>Adidas_sport_marcolin</members>
+        <members>bannerMarcolin</members>
+        <members>Diesel_marcolin</members>
+        <members>EZ0184</members>
+        <members>logoMarcolin</members>
+        <members>logoMarcolinDark</members>
+        <members>sfondobianco</members>
+        <name>ContentAsset</name>
+    </types>
+    <types>
+      <members>marcolin.cspTrustedSite</members>
+      <name>CspTrustedSite</name>
     </types>
     <types>
         <members>*</members>

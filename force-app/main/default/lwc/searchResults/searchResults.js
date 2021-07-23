@@ -135,6 +135,7 @@ export default class SearchResults extends NavigationMixin(LightningElement) {
         });
 
         this._isLoading = true;
+        
 
         productSearch({
             communityId: communityId,
@@ -142,14 +143,15 @@ export default class SearchResults extends NavigationMixin(LightningElement) {
             effectiveAccountId: this.resolvedEffectiveAccountId
         })
             .then((result) => {
+                
                 this.displayData = result;
                 this._isLoading = false;
-                console.log(result);
+                
             })
             .catch((error) => {
                 this.error = error;
                 this._isLoading = false;
-                console.log(error);
+                
             });
     }
 

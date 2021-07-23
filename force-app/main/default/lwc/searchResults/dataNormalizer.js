@@ -1,4 +1,5 @@
 import { resolve } from 'c/cmsResourceResolver';
+import { api } from 'lwc';
 
 /**
  * Transform product search API response data into display-data.
@@ -16,7 +17,7 @@ export function transformData(data, cardContentMapping) {
         products = [],
         pageSize = DEFAULT_PAGE_SIZE
     } = productsPage;
-
+    
     return {
         locale,
         total,
@@ -48,11 +49,10 @@ export function transformData(data, cardContentMapping) {
         ),
         /* Product list normalization */
         layoutData: products.map(
-            ({ id, name, defaultImage, fields, prices }) => {
+            ({ id, name, defaultImage, fields, prices,variationProducts,variationList }) => {
                 defaultImage = defaultImage || {};
                 const { unitPrice: negotiatedPrice, listPrice: listingPrice } =
                     prices || {};
-
                 return {
                     id,
                     name,
@@ -74,7 +74,10 @@ export function transformData(data, cardContentMapping) {
                         listingPrice,
                         negotiatedPrice,
                         currencyIsoCode
-                    }
+                    },
+                    variationProducts : variationProducts,
+                    variationList : variationList,
+                    
                 };
             }
         )
@@ -89,3 +92,8 @@ export function transformData(data, cardContentMapping) {
 export function normalizedCardContentMapping(cardContentMapping) {
     return (cardContentMapping || 'Name').split(',');
 }
+
+
+
+
+

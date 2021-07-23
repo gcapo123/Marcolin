@@ -1,4 +1,4 @@
-import { LightningElement, api } from 'lwc';
+import { LightningElement, api,track } from 'lwc';
 
 /**
  * An organized display of a single product card.
@@ -7,6 +7,10 @@ import { LightningElement, api } from 'lwc';
  * @fires SearchCard#showdetail
  */
 export default class SearchCard extends LightningElement {
+
+
+
+
     /**
      * An event fired when the user clicked on the action button. Here in this
      *  this is an add to cart button.
@@ -24,6 +28,8 @@ export default class SearchCard extends LightningElement {
      *
      * @export
      */
+
+     
 
     /**
      * An event fired when the user indicates a desire to view the details of a product.
@@ -115,6 +121,8 @@ export default class SearchCard extends LightningElement {
     @api
     displayData;
 
+    @track imgToShow;
+
     /**
      * Gets or sets the card layout configurations.
      *
@@ -122,6 +130,67 @@ export default class SearchCard extends LightningElement {
      */
     @api
     config;
+
+    @track chosenVarColor = null;
+    @track chosenVarSize = null;
+    @track chosenVarId = null;
+    @track optionsColor = [];
+    @track optionsSize = [];
+
+
+    connectedCallback() {
+        this.imgToShow = this.displayData.image;
+        if(this.hasVariations == true){
+            
+            this.resetColor();
+            this.resetSize();
+
+        }else{
+            
+            this.chosenVarId = this.displayData.id;
+            
+        }
+    }
+
+    resetSize(){
+        // this.optionsSize.push({'label':'none','value':null}).concat(this.displayData.variationList.Size__c.map(el=>{
+        //     return {
+        //         'label':el.label,
+        //         'value':el.value
+        //     }
+        // }));
+
+        this.optionsSize = this.displayData.variationList.Size__c.map(el=>{
+            return {
+                'label':el.label,
+                'value':el.value
+                
+            }
+        });
+
+        this.optionsSize.unshift({'label':'none','value':null});
+    }
+
+    resetColor(){
+
+        // this.optionsColor.push({'label':'none','value':null}).concat(this.displayData.variationList.Color__c.map(el=>{
+        //     return {
+        //         'label':el.label,
+        //         'value':el.value
+        //     }
+        // }));
+
+        this.optionsColor = this.displayData.variationList.Color__c.map(el=>{
+            return {
+                'label':el.label,
+                'value':el.value,
+                'image':el.image
+            }
+        });
+
+        this.optionsColor.unshift({'label':'none','value':null,'image':this.displayData.image});
+        
+    }
 
     /**
      * Gets the product image.
@@ -131,7 +200,7 @@ export default class SearchCard extends LightningElement {
      * @private
      */
     get image() {
-        return this.displayData.image || {};
+        return this.imgToShow || {};
     }
 
     /**
@@ -159,6 +228,87 @@ export default class SearchCard extends LightningElement {
         }));
     }
 
+    
+
+    handleChangeColor(event){
+
+        this.chosenVarColor = event.target.value;
+        this.resetSize();
+        if(this.chosenVarColor == null){
+            //reset 
+            this.chosenVarId = null;
+            this.imgToShow = this.displayData.image;
+            
+        
+
+        }else{
+            
+            if(this.chosenVarSize != null){
+                for(let varProd of this.displayData.variationProducts){
+                    if (varProd.attValues.Color__c ==this.chosenVarColor && varProd.attValues.Size__c == this.chosenVarSize){
+                        this.chosenVarId = varProd.id;
+                    }
+                }
+            }
+
+            this.optionsSize = this.optionsSize.filter(el=>{
+                for(let o of this.displayData.variationProducts){
+                    if(o.attValues.Color__c== this.chosenVarColor && o.attValues.Size__c==el.value){
+                        return true;
+                    }
+                    if(el.value == null){
+                        return true;
+                    }
+                }
+                return false;
+            });
+            
+            for(let val of this.optionsColor){
+                if(val.value == this.chosenVarColor){
+                    console.log(val.image);
+                    this.imgToShow = val.image;
+                    break;
+                }
+            }
+        }
+        
+
+    }
+
+    get hasVariations(){
+        return this.displayData.variationProducts != null && this.displayData.variationProducts.length>0
+    }
+
+    handleChangeSize(event){
+        this.chosenVarSize = event.target.value;
+        this.resetColor();
+        if(this.chosenVarSize == null){
+            this.chosenVarId = null;
+            
+        }else{
+            if(this.chosenVarColor != null){
+                for(let varProd of this.displayData.variationProducts){
+                    if (varProd.attValues.Color__c==this.chosenVarColor && varProd.attValues.Size__c == this.chosenVarSize){
+                        this.chosenVarId = varProd.id;
+                    }
+                }
+            }
+
+            this.optionsColor = this.optionsColor.filter(el=>{
+                for(let o of this.displayData.variationProducts){
+                    if(o.attValues.Size__c == this.chosenVarSize && o.attValues.Color__c==el.value){
+                        return true;
+                    }
+                    if(el.value == null){
+                        return true;
+                    }
+                }
+                return false;
+            });
+        }
+
+    }
+
     /**
      * Whether or not the product image to be shown on card.
      *
@@ -178,7 +328,9 @@ export default class SearchCard extends LightningElement {
      * @private
      */
     get actionDisabled() {
-        return !!(this.config || {}).actionDisabled;
+        let a = !!(this.config || {}).actionDisabled;
+       
+        return  a || this.chosenVarId == null;
     }
 
     /**
@@ -265,7 +417,7 @@ export default class SearchCard extends LightningElement {
                 bubbles: true,
                 composed: true,
                 detail: {
-                    productId: this.displayData.id,
+                    productId: this.chosenVarId,
                     productName: this.displayData.name
                 }
             })
